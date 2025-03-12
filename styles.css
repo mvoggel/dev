@@ -45,11 +45,9 @@ canvas {
     justify-content: center;
     align-items: center;
     gap: 20px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    height: 100vh; /* Centers content vertically */
 }
+
 
 /* style.css updates */
 /* style.css updates */
@@ -161,14 +159,14 @@ h1 a:hover::after {
 
 .back-container {
     display: flex;
-    align-items: flex-end;
+    align-items: baseline; /* Ensures the title and button align on the bottom */
     gap: 20px;
     position: relative;
     width: 90%;
     max-width: 1200px;
     margin: 50px auto 20px auto;
-    pointer-events: auto; /* Allow interactions */
 }
+
 
 .back-btn {
     align-self: flex-end; /* Aligns button to bottom */
@@ -206,7 +204,7 @@ h1 a:hover::after {
     .project {
         flex-direction: column; /* Stack elements vertically */
         align-items: center; /* Center items */
-        text-align: left; /* Center text */
+        text-align: center; /* Center text properly */
     }
 
     .project-thumbnail {
@@ -215,7 +213,7 @@ h1 a:hover::after {
 
     .project-description {
         width: 90%; /* Match the image width */
-        text-align: left; /* Center the text */
+        text-align: center; /* Center the text */
         margin-top: 15px; /* Add spacing */
     }
 
@@ -236,7 +234,7 @@ h1 a:hover::after {
 }
 
 .tag {
-    background-color: #333;
+    background-color: rgba(255, 255, 255, 0.2);
     color: #fff;
     font-size: 0.8rem;
     padding: 5px 10px;
@@ -245,7 +243,13 @@ h1 a:hover::after {
     font-weight: bold;
     letter-spacing: 0.5px;
     display: inline-block;
+    transition: background 0.3s ease-in-out;
 }
+
+.tag:hover {
+    background-color: rgba(255, 255, 255, 0.4); /* Slight highlight on hover */
+}
+
 
 
 #tag-filter {
@@ -253,11 +257,17 @@ h1 a:hover::after {
     background-color: #222;
     color: #fff;
     border: 1px solid #555;
-    padding: 5px 10px;
+    padding: 7px 12px;
     border-radius: 5px;
     font-size: 0.9rem;
     cursor: pointer;
-    pointer-events: auto; /* Ensures dropdown is selectable */
-
+    pointer-events: auto;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
 }
+
+#tag-filter:hover {
+    background-color: #00ffcc;
+    color: #0d0d0d;
+}
+
 
