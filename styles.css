@@ -41,17 +41,43 @@ canvas {
     gap: 20px;
 }
 
+/* style.css updates */
 h1 a {
     color: #fff;
     text-decoration: none;
     font-size: 2rem;
     font-weight: 600;
-    transition: color 0.3s ease-in-out;
+    position: relative;
 }
 
-h1 a:hover {
-    color: #00ffcc;
+h1 a::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #00ffcc;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    transition: width 0.3s ease-in-out;
 }
+
+h1 a:hover::after {
+    width: 100%;
+}
+
+#name-box {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #00ffcc;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
 /* style.css (Updated for New Layout) */
 .projects-list {
     display: flex;
