@@ -200,25 +200,27 @@ h1 a:hover::after {
 
 @media screen and (max-width: 768px) {
     .project {
-        flex-direction: column; /* Stack elements vertically */
-        align-items: center; /* Center items */
-        text-align: center; /* Center text properly */
+        flex-direction: column !important; /* Force vertical stacking */
+        align-items: center;
+        text-align: center;
     }
 
     .project-thumbnail {
-        width: 90%; /* Make the image nearly full-width */
+        width: 90%; /* Make the image nearly full width */
+        order: -1 !important; /* Ensures the image always comes first */
     }
 
     .project-description {
-        width: 90%; /* Match the image width */
-        text-align: center; /* Center the text */
-        margin-top: 15px; /* Add spacing */
+        width: 90%;
+        text-align: center;
+        margin-top: 15px;
     }
 
     .project-buttons {
-        justify-content: center; /* Center buttons */
+        justify-content: center;
     }
 }
+
 
 
 .project:nth-child(even) .project-description {
@@ -249,9 +251,14 @@ h1 a:hover::after {
 }
 
 
+.filter-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto 40px auto; /* Adds space below the title */
+    text-align: left; /* Left-aligns the filter */
+}
 
 #tag-filter {
-    margin-left: auto;
     background-color: #222;
     color: #fff;
     border: 1px solid #555;
