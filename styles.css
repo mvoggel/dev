@@ -12,15 +12,14 @@ body {
 }
 
 canvas {
-    position: absolute; /* Instead of fixed */
+    position: absolute;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: -1;
-    pointer-events: none; /* Allows mouse events to pass through */
-    background: #0d0d0d;
+    z-index: -1; /* Keep it behind content */
 }
+
 
 
 .nav-container {
