@@ -5,6 +5,7 @@ canvas.height = window.innerHeight;
 
 let particles = [];
 const particleCount = 100;
+const colors = ["#ffffff", "#ffd700", "#ffcc00", "#ff4500", "#ff6347"];
 
 class Particle {
     constructor(x, y) {
@@ -13,17 +14,21 @@ class Particle {
         this.size = Math.random() * 3 + 1;
         this.speedX = Math.random() * 1 - 0.5;
         this.speedY = Math.random() * 1 - 0.5;
+        this.color = colors[Math.floor(Math.random() * colors.length)];
+        this.opacity = Math.random() * 0.6 + 0.3;
     }
     update() {
         this.x += this.speedX;
         this.y += this.speedY;
     }
     draw() {
-        ctx.fillStyle = "rgba(255, 255, 255, 0.8)";
+        ctx.fillStyle = this.color;
+        ctx.globalAlpha = this.opacity;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.closePath();
         ctx.fill();
+        ctx.globalAlpha = 1;
     }
 }
 
@@ -44,9 +49,11 @@ function animateParticles() {
 }
 
 canvas.addEventListener("mousemove", (event) => {
-    particles.push(new Particle(event.x, event.y));
-    if (particles.length > particleCount) {
-        particles.shift();
+    for (let i = 0; i < 5; i++) {
+        particles.push(new Particle(event.x, event.y));
+        if (particles.length > particleCount * 2) {
+            particles.shift();
+        }
     }
 });
 
