@@ -379,14 +379,23 @@ h1 a:hover::after {
 }
 
 .contact-item i {
-    font-size: 3rem;
-    color: #00ffcc;
-    margin-bottom: 10px;
+    font-size: 2rem; /* Icon size */
+    background-color: rgba(0, 255, 204, 0.2); /* Light blue background */
+    width: 70px; /* Fixed size */
+    height: 70px;
+    border-radius: 50%; /* Makes it a circle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #00ffcc; /* Icon color */
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
 }
 
-.contact-item:hover {
+.contact-item:hover i {
+    background-color: rgba(0, 255, 204, 0.4); /* Slightly brighter on hover */
     transform: scale(1.1);
 }
+
 
 .contact-description {
     margin-top: 20px;
