@@ -42,6 +42,7 @@ canvas {
 }
 
 /* style.css updates */
+/* style.css updates */
 h1 a {
     color: #fff;
     text-decoration: none;
@@ -76,9 +77,11 @@ h1 a:hover::after {
     background: rgba(255, 255, 255, 0.1);
     padding: 10px 20px;
     border-radius: 5px;
+    display: block;
 }
 
 /* style.css (Updated for New Layout) */
+/* Ensure /projects page allows scrolling */
 .projects-list {
     display: flex;
     flex-direction: column;
@@ -87,6 +90,8 @@ h1 a:hover::after {
     width: 90%;
     max-width: 1200px;
     margin: 50px auto;
+    overflow-y: auto;
+    max-height: 90vh;
 }
 
 .project {
