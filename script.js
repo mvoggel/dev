@@ -5,23 +5,26 @@ canvas.height = window.innerHeight;
 
 let particles = [];
 const particleCount = 100;
-const colors = ["#ffffff", "#ffd700", "#ffcc00", "#ff4500", "#ff6347"];
+const colors = ["#ffffff", "#00aaff", "#99ccff", "#66ccff", "#33bbff"];
 
 class Particle {
     constructor(x, y, isStatic = false) {
         this.x = x;
         this.y = y;
-        this.size = Math.random() * 3 + 1;
-        this.speedX = (Math.random() - 0.5) * 1.5;
-        this.speedY = (Math.random() - 0.5) * 1.5;
+        this.size = Math.random() * 2 + 0.5; // Smaller particles
+        this.speedX = (Math.random() - 0.5) * 0.5; // Slow movement
+        this.speedY = (Math.random() - 0.5) * 0.5;
         this.color = colors[Math.floor(Math.random() * colors.length)];
-        this.opacity = Math.random() * 0.6 + 0.3;
-        this.isStatic = isStatic; // Determines if the particle moves with the mouse
+        this.opacity = Math.random() * 0.5 + 0.5; // Varying brightness
+        this.isStatic = isStatic;
+        this.brightnessVariation = Math.random() * 0.05 + 0.02; // Subtle flickering effect
     }
     update() {
-        if (!this.isStatic) {
-            this.x += this.speedX;
-            this.y += this.speedY;
+        this.x += this.speedX;
+        this.y += this.speedY;
+        this.opacity += this.brightnessVariation;
+        if (this.opacity > 1 || this.opacity < 0.3) {
+            this.brightnessVariation *= -1;
         }
     }
     draw() {
@@ -37,7 +40,6 @@ class Particle {
 
 function initParticles() {
     particles = [];
-    // Create background static particles
     for (let i = 0; i < particleCount; i++) {
         particles.push(new Particle(Math.random() * canvas.width, Math.random() * canvas.height, true));
     }
@@ -49,20 +51,13 @@ function animateParticles() {
     particles.forEach((particle, index) => {
         particle.update();
         particle.draw();
-        
-        if (!particle.isStatic) {
-            particle.size *= 0.98; // Fade effect for mouse particles
-            if (particle.size < 0.5) {
-                particles.splice(index, 1);
-            }
-        }
     });
 
     requestAnimationFrame(animateParticles);
 }
 
 window.addEventListener("mousemove", (event) => {
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 3; i++) {
         particles.push(new Particle(event.clientX, event.clientY));
     }
     if (particles.length > particleCount * 2) {
