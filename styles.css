@@ -250,7 +250,6 @@ h1 a:hover::after {
     background-color: rgba(255, 255, 255, 0.4); /* Slight highlight on hover */
 }
 
-
 .filter-container {
     width: 90%;
     max-width: 1200px;
@@ -273,6 +272,53 @@ h1 a:hover::after {
 #tag-filter:hover {
     background-color: #00ffcc;
     color: #0d0d0d;
+}
+.managed-projects {
+    width: 90%;
+    max-width: 1200px;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.managed-project {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.managed-project h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.project-summary {
+    font-size: 1rem;
+    color: #ddd;
+}
+
+.project-tech {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+
+.read-more-toggle {
+    text-align: center;
+    margin-top: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #00ffcc;
+}
+
+.full-description {
+    display: none; /* Initially hidden */
+    margin-top: 15px;
+    color: #ccc;
 }
 
 
