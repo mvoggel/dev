@@ -120,3 +120,16 @@ document.getElementById("tag-filter").addEventListener("change", function() {
         }
     });
 });
+
+
+function toggleReadMore(element) {
+    const fullDescription = element.nextElementSibling;
+
+    if (fullDescription.style.display === "none" || fullDescription.style.display === "") {
+        fullDescription.style.display = "block";
+        element.innerHTML = "Read Less ▲";
+    } else {
+        fullDescription.style.display = "none";
+        element.innerHTML = "Read More ▼";
+    }
+}
