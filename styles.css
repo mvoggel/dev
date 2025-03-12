@@ -346,4 +346,81 @@ h1 a:hover::after {
     opacity: 1;
 }
 
+/* Contact Section */
+.contact-section {
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent */
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    width: 60%;
+    margin: 40px auto;
+}
+
+.contact-section h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.contact-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+.contact-item i {
+    font-size: 3rem;
+    color: #00ffcc;
+    margin-bottom: 10px;
+}
+
+.contact-item:hover {
+    transform: scale(1.1);
+}
+
+.contact-description {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #ccc;
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+/* Responsive - Adjust number of icons per row */
+@media (max-width: 1024px) {
+    .contact-section {
+        width: 75%;
+    }
+    .contact-icons {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-section {
+        width: 85%;
+    }
+    .contact-icons {
+        flex-wrap: wrap;
+    }
+    .contact-item {
+        flex: 1 1 40%; /* 2 per row */
+    }
+}
+
+@media (max-width: 500px) {
+    .contact-item {
+        flex: 1 1 100%; /* 1 per row */
+    }
+}
 
