@@ -11,14 +11,25 @@ body {
     overflow: hidden;
 }
 
+body, .nav-container, .projects-list, .project {
+    pointer-events: none; /* Ensures mouse events reach the canvas */
+}
+
+.btn, a {
+    pointer-events: auto; /* Re-enable interactivity only on links/buttons */
+}
+
+
 canvas {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: -1; /* Keep it behind content */
+    width: 100vw; /* Force it to stretch across full width */
+    height: 100vh; /* Full height */
+    z-index: 999; /* Keeps it behind content */
+    background: #0d0d0d;
 }
+
 
 
 
