@@ -3,29 +3,38 @@ const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-let particles = [];
-const particleCount = 100;
-const colors = ["#ffffff", "#00aaff", "#99ccff", "#66ccff", "#33bbff"];
+const staticParticles = []; // Always present particles
+const dynamicParticles = []; // Mouse-created particles
+
+const staticParticleCount = 100; // Always visible background particles
+const dynamicParticleLimit = 50; // Max particles from mouse movement
+const colors = ["#ffffff", "#00aaff", "#99ccff", "#66ccff", "#33bbff"]; // Blue-based color palette
 
 class Particle {
     constructor(x, y, isStatic = false) {
         this.x = x;
         this.y = y;
-        this.size = Math.random() * 2 + 0.5; // Smaller particles
-        this.speedX = (Math.random() - 0.5) * 0.2; // Slow movement
-        this.speedY = (Math.random() - 0.5) * 0.2;
+        this.size = Math.random() * 1.5 + 0.5; // Smaller particles
+        this.speedX = (Math.random() - 0.5) * (isStatic ? 0.1 : 0.5); // Static moves slower
+        this.speedY = (Math.random() - 0.5) * (isStatic ? 0.1 : 0.5);
         this.color = colors[Math.floor(Math.random() * colors.length)];
         this.opacity = Math.random() * 0.5 + 0.5; // Varying brightness
+        this.brightnessVariation = Math.random() * 0.03 + 0.01; // Flickering effect
         this.isStatic = isStatic;
-        this.brightnessVariation = Math.random() * 0.05 + 0.02; // Subtle flickering effect
     }
     update() {
         this.x += this.speedX;
         this.y += this.speedY;
+
+        // Flickering effect (brightness variation)
         this.opacity += this.brightnessVariation;
         if (this.opacity > 1 || this.opacity < 0.3) {
             this.brightnessVariation *= -1;
         }
+
+        // Keep particles within bounds
+        if (this.x > canvas.width || this.x < 0) this.speedX *= -1;
+        if (this.y > canvas.height || this.y < 0) this.speedY *= -1;
     }
     draw() {
         ctx.fillStyle = this.color;
@@ -38,38 +47,57 @@ class Particle {
     }
 }
 
+// Initialize static background particles
 function initParticles() {
-    particles = [];
-    for (let i = 0; i < particleCount; i++) {
-        particles.push(new Particle(Math.random() * canvas.width, Math.random() * canvas.height, true));
+    staticParticles.length = 0;
+    for (let i = 0; i < staticParticleCount; i++) {
+        staticParticles.push(new Particle(Math.random() * canvas.width, Math.random() * canvas.height, true));
     }
 }
 
-function animateParticles() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
-    particles.forEach((particle, index) => {
-        particle.update();
-        particle.draw();
-    });
-    
-    requestAnimationFrame(animateParticles);
-}
-
+// Mouse movement adds extra particles
 window.addEventListener("mousemove", (event) => {
-    for (let i = 0; i < 3; i++) {
-        particles.push(new Particle(event.clientX, event.clientY));
+    for (let i = 0; i < 5; i++) {
+        let spreadX = event.clientX + (Math.random() - 0.5) * 150; // Wider spread
+        let spreadY = event.clientY + (Math.random() - 0.5) * 150;
+        dynamicParticles.push(new Particle(spreadX, spreadY));
     }
-    if (particles.length > particleCount * 3) {
-        particles.splice(0, particles.length - particleCount * 3);
+
+    // Limit the number of dynamic particles
+    if (dynamicParticles.length > dynamicParticleLimit) {
+        dynamicParticles.splice(0, dynamicParticles.length - dynamicParticleLimit);
     }
 });
 
-initParticles();
-animateParticles();
+// Particle animation loop
+function animateParticles() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+    // Always keep background particles
+    staticParticles.forEach((particle) => {
+        particle.update();
+        particle.draw();
+    });
+
+    // Draw mouse-generated particles
+    dynamicParticles.forEach((particle, index) => {
+        particle.update();
+        particle.draw();
+        if (particle.size < 0.5) {
+            dynamicParticles.splice(index, 1);
+        }
+    });
+
+    requestAnimationFrame(animateParticles);
+}
+
+// Resize handler to keep particles correctly positioned
 window.addEventListener("resize", () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     initParticles();
 });
+
+// Start everything
+initParticles();
+animateParticles();
