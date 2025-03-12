@@ -223,3 +223,34 @@ h1 a:hover::after {
 .project:nth-child(even) .project-description {
     order: 1;
 }
+.project-tags {
+    margin: 10px 0; /* Adds spacing */
+    display: flex;
+    gap: 8px; /* Space between tags */
+    flex-wrap: wrap; /* Allows tags to wrap on smaller screens */
+}
+
+.tag {
+    background-color: #333;
+    color: #fff;
+    font-size: 0.8rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    display: inline-block;
+}
+
+
+#tag-filter {
+    margin-left: auto;
+    background-color: #222;
+    color: #fff;
+    border: 1px solid #555;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
