@@ -101,3 +101,22 @@ window.addEventListener("resize", () => {
 // Start everything
 initParticles();
 animateParticles();
+
+
+
+
+//Filtering by tag
+document.getElementById("tag-filter").addEventListener("change", function() {
+    const selectedTag = this.value;
+    const projects = document.querySelectorAll(".project");
+
+    projects.forEach(project => {
+        const tags = Array.from(project.querySelectorAll(".tag")).map(tag => tag.textContent.toLowerCase().replace(/\s+/g, '-'));
+
+        if (selectedTag === "all" || tags.includes(selectedTag)) {
+            project.style.display = "flex"; // Show matching projects
+        } else {
+            project.style.display = "none"; // Hide non-matching projects
+        }
+    });
+});
