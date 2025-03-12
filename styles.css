@@ -313,7 +313,10 @@ h1 a:hover::after {
     font-weight: bold;
     cursor: pointer;
     color: #00ffcc;
+    pointer-events: auto; /* Ensures clicks work */
+    user-select: none; /* Prevents accidental selection */
 }
+
 
 .full-description {
     display: none; /* Initially hidden */
