@@ -395,8 +395,8 @@ h1 a:hover::after {
 
 /* Icon Image Inside Circle */
 .icon-circle img {
-    width: 50px; /* Keeps image inside the circle */
-    height: 50px;
+    width: 65px; /* Keeps image inside the circle */
+    height: 65px;
     object-fit: contain; /* Ensures proper scaling */
 }
 
