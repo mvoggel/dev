@@ -4,7 +4,7 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 let particles = [];
-const particleCount = 100;
+const particleCount = 200;
 const colors = ["#ffffff", "#ffd700", "#ffcc00", "#ff4500", "#ff6347"];
 
 class Particle {
