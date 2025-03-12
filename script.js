@@ -9,28 +9,26 @@ const colors = ["#ffffff", "#ffd700", "#ffcc00", "#ff4500", "#ff6347"];
 
 class Particle {
     constructor(x, y) {
-        this.x = x;
+        this.x = x;  // Ensure it starts exactly at the cursor
         this.y = y;
         this.size = Math.random() * 3 + 1;
-        this.speedX = Math.random() * 1 - 0.5;
-        this.speedY = Math.random() * 1 - 0.5;
-        this.color = colors[Math.floor(Math.random() * colors.length)];
-        this.opacity = Math.random() * 0.6 + 0.3;
+        this.speedX = (Math.random() - 0.5) * 2; // Small random movement
+        this.speedY = (Math.random() - 0.5) * 2;
+        this.color = "white"; // Force white for now to test visibility
     }
     update() {
-        this.x += this.speedX;
+        this.x += this.speedX; // Small movement over time
         this.y += this.speedY;
     }
     draw() {
         ctx.fillStyle = this.color;
-        ctx.globalAlpha = this.opacity;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.closePath();
         ctx.fill();
-        ctx.globalAlpha = 1;
     }
 }
+
 
 function initParticles() {
     particles = [];
@@ -41,16 +39,34 @@ function initParticles() {
 
 function animateParticles() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particles.forEach(particle => {
+    
+    particles.forEach((particle, index) => {
         particle.update();
         particle.draw();
+        
+        // Fade out particles by gradually decreasing size
+        particle.size *= 0.98;
+        if (particle.size < 0.5) {
+            particles.splice(index, 1);
+        }
     });
+
     requestAnimationFrame(animateParticles);
 }
 
+
 canvas.addEventListener("mousemove", (event) => {
-    console.log("Mouse moving at:", event.clientX, event.clientY); // Debugging log
+    console.log("Mouse moving at:", event.clientX, event.clientY); // Debugging
+
+    for (let i = 0; i < 5; i++) { // Creates multiple particles per move
+        particles.push(new Particle(event.clientX, event.clientY));
+    }
+    
+    if (particles.length > particleCount * 2) {
+        particles.splice(0, particles.length - particleCount * 2); // Keep it efficient
+    }
 });
+
 
 
 
