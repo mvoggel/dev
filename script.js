@@ -128,24 +128,31 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-
 document.addEventListener("DOMContentLoaded", function () {
+    console.log("DOM fully loaded"); // Debugging step 1
+
     const readMoreToggles = document.querySelectorAll(".read-more-toggle");
+    console.log("Found", readMoreToggles.length, "Read More buttons"); // Debugging step 2
 
-    if (readMoreToggles.length > 0) {  // Only run if the elements exist
+    if (readMoreToggles.length > 0) {
         readMoreToggles.forEach((toggle) => {
+            console.log("Adding event listener to:", toggle.textContent); // Debugging step 3
+            
             toggle.addEventListener("click", function () {
-                const fullDescription = this.nextElementSibling;
+                console.log("Read More clicked!"); // Debugging step 4
 
-                if (fullDescription.style.display === "none" || fullDescription.style.display === "") {
-                    fullDescription.style.display = "block";
-                    this.innerHTML = "Read Less ▲";
-                } else {
-                    fullDescription.style.display = "none";
-                    this.innerHTML = "Read More ▼";
+                const fullDescription = this.nextElementSibling;
+                if (!fullDescription) {
+                    console.error("Full description not found for:", this);
+                    return;
                 }
+
+                fullDescription.classList.toggle("active");
+                this.innerHTML = fullDescription.classList.contains("active") ? "Read Less ▲" : "Read More ▼";
             });
         });
+    } else {
+        console.warn("No .read-more-toggle elements found on this page.");
     }
 });
 
