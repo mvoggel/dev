@@ -12,8 +12,8 @@ class Particle {
         this.x = x;
         this.y = y;
         this.size = Math.random() * 2 + 0.5; // Smaller particles
-        this.speedX = (Math.random() - 0.5) * 0.5; // Slow movement
-        this.speedY = (Math.random() - 0.5) * 0.5;
+        this.speedX = (Math.random() - 0.5) * 0.2; // Slow movement
+        this.speedY = (Math.random() - 0.5) * 0.2;
         this.color = colors[Math.floor(Math.random() * colors.length)];
         this.opacity = Math.random() * 0.5 + 0.5; // Varying brightness
         this.isStatic = isStatic;
@@ -52,7 +52,7 @@ function animateParticles() {
         particle.update();
         particle.draw();
     });
-
+    
     requestAnimationFrame(animateParticles);
 }
 
@@ -60,8 +60,8 @@ window.addEventListener("mousemove", (event) => {
     for (let i = 0; i < 3; i++) {
         particles.push(new Particle(event.clientX, event.clientY));
     }
-    if (particles.length > particleCount * 2) {
-        particles.splice(0, particles.length - particleCount * 2);
+    if (particles.length > particleCount * 3) {
+        particles.splice(0, particles.length - particleCount * 3);
     }
 });
 
