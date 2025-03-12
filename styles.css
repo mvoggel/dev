@@ -12,14 +12,16 @@ body {
 }
 
 canvas {
-    position: fixed;
+    position: absolute; /* Instead of fixed */
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     z-index: -1;
+    pointer-events: none; /* Allows mouse events to pass through */
     background: #0d0d0d;
 }
+
 
 .nav-container {
     display: flex;
