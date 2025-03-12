@@ -125,17 +125,20 @@ document.getElementById("tag-filter").addEventListener("change", function() {
 document.addEventListener("DOMContentLoaded", function () {
     const readMoreToggles = document.querySelectorAll(".read-more-toggle");
 
-    readMoreToggles.forEach((toggle) => {
-        toggle.addEventListener("click", function () {
-            const fullDescription = this.nextElementSibling;
+    if (readMoreToggles.length > 0) {  // Only run if the elements exist
+        readMoreToggles.forEach((toggle) => {
+            toggle.addEventListener("click", function () {
+                const fullDescription = this.nextElementSibling;
 
-            if (fullDescription.style.display === "none" || fullDescription.style.display === "") {
-                fullDescription.style.display = "block";
-                this.innerHTML = "Read Less ▲";
-            } else {
-                fullDescription.style.display = "none";
-                this.innerHTML = "Read More ▼";
-            }
+                if (fullDescription.style.display === "none" || fullDescription.style.display === "") {
+                    fullDescription.style.display = "block";
+                    this.innerHTML = "Read Less ▲";
+                } else {
+                    fullDescription.style.display = "none";
+                    this.innerHTML = "Read More ▼";
+                }
+            });
         });
-    });
+    }
 });
+
