@@ -316,7 +316,7 @@ h1 a:hover::after {
 }
 
 .full-description {
-    display: none; /* Initially hidden */
+    display: none; /* Hidden initially */
     margin-top: 15px;
     color: #ccc;
 }
