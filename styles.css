@@ -38,3 +38,57 @@ h1 a {
 h1 a:hover {
     color: #00ffcc;
 }
+
+/* style.css (Additions) */
+.content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    width: 80%;
+    max-width: 1000px;
+    margin-top: 20px;
+}
+
+.grid-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.grid-item a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.grid-item:hover {
+    transform: scale(1.05);
+}
+
+.back-link {
+    margin-top: 40px;
+}
+
+.back-link a {
+    color: #00ffcc;
+    font-size: 1.5rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.3s;
+}
+
+.back-link a:hover {
+    color: #ffffff;
+}
