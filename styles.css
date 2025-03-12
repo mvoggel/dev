@@ -26,7 +26,7 @@ canvas {
     left: 0;
     width: 100vw; /* Force it to stretch across full width */
     height: 100vh; /* Full height */
-    z-index: 999; /* Keeps it behind content */
+    z-index: -1; /* Keeps it behind content */
     background: #0d0d0d;
 }
 
