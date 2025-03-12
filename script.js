@@ -55,20 +55,17 @@ function animateParticles() {
 }
 
 
-canvas.addEventListener("mousemove", (event) => {
-    console.log("Mouse moving at:", event.clientX, event.clientY); // Debugging
-
-    for (let i = 0; i < 5; i++) { // Creates multiple particles per move
+window.addEventListener("mousemove", (event) => {
+    console.log("Mouse moving at:", event.clientX, event.clientY);
+    
+    for (let i = 0; i < 5; i++) {
         particles.push(new Particle(event.clientX, event.clientY));
     }
     
     if (particles.length > particleCount * 2) {
-        particles.splice(0, particles.length - particleCount * 2); // Keep it efficient
+        particles.splice(0, particles.length - particleCount * 2);
     }
 });
-
-
-
 
 initParticles();
 animateParticles();
