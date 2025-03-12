@@ -361,6 +361,7 @@ h1 a:hover::after {
     font-size: 2rem;
 }
 
+/* Contact Icons Layout */
 .contact-icons {
     display: flex;
     justify-content: center;
@@ -368,6 +369,7 @@ h1 a:hover::after {
     flex-wrap: wrap;
 }
 
+/* Contact Item (Clickable Circle) */
 .contact-item {
     display: flex;
     flex-direction: column;
@@ -378,24 +380,31 @@ h1 a:hover::after {
     transition: transform 0.3s ease-in-out;
 }
 
-.contact-item i {
-    font-size: 2rem; /* Icon size */
-    background-color: rgba(0, 255, 204, 0.2); /* Light blue background */
-    width: 70px; /* Fixed size */
+/* Circular Icon Wrapper */
+.icon-circle {
+    width: 70px;
     height: 70px;
-    border-radius: 50%; /* Makes it a circle */
+    border-radius: 50%;
+    background: rgba(0, 255, 204, 0.2); /* Light blue */
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #00ffcc; /* Icon color */
+    overflow: hidden; /* Ensures images stay within circle */
     transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
 }
 
-.contact-item:hover i {
-    background-color: rgba(0, 255, 204, 0.4); /* Slightly brighter on hover */
-    transform: scale(1.1);
+/* Icon Image Inside Circle */
+.icon-circle img {
+    width: 50px; /* Keeps image inside the circle */
+    height: 50px;
+    object-fit: contain; /* Ensures proper scaling */
 }
 
+/* Hover Effect */
+.contact-item:hover .icon-circle {
+    background: rgba(0, 255, 204, 0.4); /* Brighter blue on hover */
+    transform: scale(1.1);
+}
 
 .contact-description {
     margin-top: 20px;
@@ -405,7 +414,7 @@ h1 a:hover::after {
     margin: 20px auto;
 }
 
-/* Responsive - Adjust number of icons per row */
+/* Responsive Layout */
 @media (max-width: 1024px) {
     .contact-section {
         width: 75%;
