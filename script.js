@@ -49,13 +49,9 @@ function animateParticles() {
 }
 
 canvas.addEventListener("mousemove", (event) => {
-    for (let i = 0; i < 5; i++) {
-        particles.push(new Particle(event.clientX, event.clientY));
-        if (particles.length > particleCount * 2) {
-            particles.shift();
-        }
-    }
+    console.log("Mouse moving at:", event.clientX, event.clientY); // Debugging log
 });
+
 
 
 initParticles();
