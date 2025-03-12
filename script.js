@@ -57,6 +57,7 @@ canvas.addEventListener("mousemove", (event) => {
     }
 });
 
+
 initParticles();
 animateParticles();
 
