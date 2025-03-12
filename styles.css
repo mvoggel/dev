@@ -13,6 +13,11 @@ body {
     padding: 20px 0; 
 }
 
+body.homepage {
+    overflow: hidden; /* Prevent scrolling */
+    height: 100vh; /* Full viewport height */
+}
+
 body, .nav-container, .projects-list, .project {
     pointer-events: none; /* Ensures mouse events reach the canvas */
 }
