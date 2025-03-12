@@ -106,20 +106,27 @@ animateParticles();
 
 
 //Filtering by tag
-document.getElementById("tag-filter").addEventListener("change", function() {
-    const selectedTag = this.value;
-    const projects = document.querySelectorAll(".project");
+document.addEventListener("DOMContentLoaded", function () {
+    const tagFilter = document.getElementById("tag-filter");
 
-    projects.forEach(project => {
-        const tags = Array.from(project.querySelectorAll(".tag")).map(tag => tag.textContent.toLowerCase().replace(/\s+/g, '-'));
+    if (tagFilter) {  // Only run if the element exists
+        tagFilter.addEventListener("change", function () {
+            const selectedTag = this.value;
+            const projects = document.querySelectorAll(".project");
 
-        if (selectedTag === "all" || tags.includes(selectedTag)) {
-            project.style.display = "flex"; // Show matching projects
-        } else {
-            project.style.display = "none"; // Hide non-matching projects
-        }
-    });
+            projects.forEach(project => {
+                const tags = Array.from(project.querySelectorAll(".tag")).map(tag => tag.textContent.toLowerCase().replace(/\s+/g, '-'));
+
+                if (selectedTag === "all" || tags.includes(selectedTag)) {
+                    project.style.display = "flex"; // Show matching projects
+                } else {
+                    project.style.display = "none"; // Hide non-matching projects
+                }
+            });
+        });
+    }
 });
+
 
 
 document.addEventListener("DOMContentLoaded", function () {
