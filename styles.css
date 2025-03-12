@@ -171,6 +171,29 @@ h1 a:hover::after {
     text-align: center;
 }
 
+@media screen and (max-width: 768px) {
+    .project {
+        flex-direction: column; /* Stack elements vertically */
+        align-items: center; /* Center items */
+        text-align: left; /* Center text */
+    }
+
+    .project-thumbnail {
+        width: 90%; /* Make the image nearly full-width */
+    }
+
+    .project-description {
+        width: 90%; /* Match the image width */
+        text-align: left; /* Center the text */
+        margin-top: 15px; /* Add spacing */
+    }
+
+    .project-buttons {
+        justify-content: center; /* Center buttons */
+    }
+}
+
+
 .project:nth-child(even) .project-description {
     order: 1;
 }
