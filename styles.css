@@ -47,8 +47,8 @@ h1 a:hover {
     flex-direction: column;
     align-items: center;
     gap: 50px;
-    width: 80%;
-    max-width: 1000px;
+    width: 90%;
+    max-width: 1200px;
     margin: 50px auto;
 }
 
