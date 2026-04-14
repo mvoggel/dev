@@ -105,6 +105,38 @@ animateParticles();
 
 
 
+// Mark the current page's nav link as active
+document.addEventListener("DOMContentLoaded", function () {
+    const currentPage = window.location.pathname.split('/').pop();
+    document.querySelectorAll('.site-nav a').forEach(link => {
+        if (link.getAttribute('href') === currentPage) {
+            link.classList.add('active');
+        }
+    });
+});
+
+// Remove filter tags that have no matching projects on this page
+document.addEventListener("DOMContentLoaded", function () {
+    const tagFilter = document.getElementById("tag-filter");
+    if (!tagFilter) return;
+
+    const normalizeTag = s => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
+    const presentTags = new Set();
+    document.querySelectorAll('.project .tag').forEach(tag => {
+        presentTags.add(normalizeTag(tag.textContent));
+    });
+
+    Array.from(tagFilter.options).forEach(option => {
+        if (option.value === 'all') return;
+        const filterWords = option.value.split('-').filter(w => w.length > 1);
+        const hasMatch = [...presentTags].some(t =>
+            t === option.value || filterWords.every(word => t.includes(word))
+        );
+        if (!hasMatch) option.remove();
+    });
+});
+
 // Filtering by tag — moves matching projects to the top, hides the rest
 document.addEventListener("DOMContentLoaded", function () {
     const tagFilter = document.getElementById("tag-filter");
