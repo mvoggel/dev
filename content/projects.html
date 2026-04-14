@@ -5,213 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code Projects</title>
     <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <canvas id="particleCanvas"></canvas>
+
+    <header class="site-header">
+        <a href="../index.html" class="site-name">Matthew Voggel</a>
+        <nav class="site-nav">
+            <a href="projects.html">Code Work</a>
+            <a href="proj-managed.html">Project Management</a>
+            <a href="contact.html">Connect</a>
+        </nav>
+    </header>
+
     <div class="content-container">
         <div class="title-container">
-            <h1 class="page-title">Code Work I've Recently Completed...</h1>
-            <a href="../index.html" class="btn back-btn">⬅ Back</a>
+            <h1 class="page-title">Code Work</h1>
         </div>
-        <div class="filter-container">    
+
+        <div class="filter-container">
             <select id="tag-filter">
-                    <option value="all">Filter by Tag</option>
-                    <option value="data-tracking">Data Tracking</option>
-                    <option value="statistics">Statistics</option>
-                    <option value="javascript">JavaScript</option>
-                    <option value="python">Python</option>
-                    <option value="data-analysis">Data Analysis</option>
-                    <option value="ai-machine-learning">Machine Learning/AI</option>
-                    <option value="automation">Automation</option>
-                    <option value="finance">Finance/Quant</option>
-
-                    <!-- Add more tags here -->
-                </select>
+                <option value="all">Filter by Tag</option>
+                <option value="data-tracking">Data Tracking</option>
+                <option value="statistics">Statistics</option>
+                <option value="javascript">JavaScript</option>
+                <option value="python">Python</option>
+                <option value="data-analysis">Data Analysis</option>
+                <option value="ai-machine-learning">Machine Learning/AI</option>
+                <option value="automation">Automation</option>
+                <option value="finance">Finance/Quant</option>
+            </select>
         </div>
-        <div class="projects-list">
-                <div class="project">
-                <div class="project-thumbnail right">
-                    <img src="../assets/dataviz.png" alt="Project 2">
-                    <div class="overlay"></div>
-                </div>
-                <div class="project-description right">
-                    <h2> Python Jupyter Notebooks - Data Visualization</h2>
-                    <p> A series of python notebooks intended for data analyses methods (PERT, statistical significance, regression) using matplotlib, numpy and pandas libraries. Created using Google Colab. </p>
-                    <p>One notebook handles expert data visualizations and calculations, and the other is a create-your-own plotting tool.</p>
-                    <div class="project-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">Data Analysis</span>
-                    </div>
-                    <div class="project-buttons">
-                        <a href="https://colab.research.google.com/drive/1Zpq0vkwFyCuBraOXQp1QEaEdCbAxTWmu?usp=sharing" class="btn">Data Visualizations</a>
-                        <a href="https://colab.research.google.com/drive/1C9bPBDlHXzXS0S0aQvEGTrgmBOCJyTne?usp=sharing" class="btn">Build your own plot</a>
-                    </div>
-                </div>
-            </div>
 
-            <hr>
+        <div class="projects-list">
+
             <div class="project">
                 <div class="project-thumbnail right">
-                    <img src="../assets/statscourse.png" alt="Project 2">
+                    <img src="../assets/dataviz.png" alt="pcIQ Platform">
                     <div class="overlay"></div>
                 </div>
-                <div class="project-description right">
-                    <h2> OpenAI Python story-writing app - world sentiment analysis</h2>
-                    <p> A storytelling application that generates a new chapter in an ever-growing story. A python script queries top news and social media feeds
-                    from around the world, analyzes them with a sentiment analysis score, which is used to create our tone and mood of the day's story.</p>
-                    <p>Using the previos day's storyline, OpenAI  helps write today's chapter using the same characters and plot, creating a growing story that the world writes! </p>
+                <div class="project-description left">
+                    <h2>Private Credit Intelligence Platform (pcIQ) — In Progress</h2>
+                    <p>Designing a sales intelligence and deal-sourcing tool for alternative finance. Maps RIAs to fund flows and investment behavior using scoring models, probabilistic inference, and a hybrid data ingestion strategy (CSV + external APIs).</p>
+                    <p>Architecture goal: convert fragmented private credit data into actionable intelligence for fund managers and deal teams.</p>
                     <div class="project-tags">
                         <span class="tag">Python</span>
                         <span class="tag">Machine Learning/AI</span>
-                        <span class="tag">Data Analysis</span>
+                        <span class="tag">Finance/Quant</span>
                     </div>
                     <div class="project-buttons">
-                        <a href="https://github.com/mvoggel/live-book" class="btn">View Code</a>
-                        <a href="https://www.reddit.com/user/MattVoggel/" class="btn"> Read the Story </a>
+                        <a href="#" class="btn">View Code</a>
                     </div>
                 </div>
             </div>
-
-            <hr>
-            
-            <div class="project">
-                <div class="project-thumbnail right">
-                    <video autoplay muted loop playsinline style="width: 100%; height: auto; object-fit: cover;">
-                        <source src="../assets/sysmon.mp4" type="video/mp4">
-                          Your browser does not support the video tag.
-                    </video>
-                    <div class="overlay"></div>
-                </div>
-                <div class="project-description right">
-                    <h2> Advanced System Health Monitor - Python logs and e-mail thresholds</h2>
-                    <p>This Python-based system monitoring tool tracks CPU, memory (RAM), and disk usage over time, logs the data, and sends email alerts 
-                        when performance thresholds are exceeded. It logs this in a continual txt file. </p>
-                    <p> After 5 minutes of running, it stops and creates a dashboard plot of all system information. </p>
-
-                    <div class="project-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">Data Tracking</span>
-                    </div>
-
-                </div>
-            </div>
-
-            <hr> 
-
-            
-            <div class="project">
-                <div class="project-thumbnail right">
-                    <img src="../assets/statscourse.png" alt="Project 2">
-                    <div class="overlay"></div>
-                </div>
-                <div class="project-description left">
-                    <h2>College Statistics Course Website</h2>
-                    <p>Comprehensive college course on Statistics (101/102) and Probability Theory (201). Uses React.js and Chart.js for interactivity, deployment, and routing. </p>
-                    <div class="project-tags">
-                        <span class="tag">Statistics</span>
-                        <span class="tag">JavaScript</span>
-                    </div>
-                    <div class="project-buttons">
-                        <a href="https://github.com/mvoggel/prob_stats" class="btn">View Code</a>
-                    </div>
-                </div>
-            </div>
-                        
-            <hr>
-            
-            <div class="project">
-                <div class="project-thumbnail left">
-                    <img src="../assets/investment_bot_rf_alpaca.png" alt="Project 3">
-                    <div class="overlay"></div>
-                </div>
-                <div class="project-description right">
-                    <h2>Dynamic Investment Trading Bot</h2>
-                    <p>Python bot that automatically rebalances, and trades stocks based on an ETL flow, and Random Forest algorithm. Uses real-time and historical data to analyze market, and make decisions. Runs daily.  </p>
-                    <div class="project-tags">
-                        <span class="tag">Data Analysis</span>
-                        <span class="tag">Python</span>
-                    </div>
-                    <div class="project-buttons">
-                        <a href="https://github.com/mvoggel/alpaca-trading/tree/main/investment_bot" class="btn">View Code</a>
-                    </div>
-                </div>
-            </div>
-
-            <hr>
-            
-            <div class="project">
-                <div class="project-thumbnail left">
-                    <img src="../assets/analytics-demo.png" alt="Project 1">
-                    <div class="overlay"></div>
-                </div>
-                <div class="project-description right">
-                    <h2>Live Analytics Demo Site</h2>
-                    <p>Simulating GA, PIWIK Pro Tag Manager tracking, user behavior captures in live debugger.</p>
-
-                    <div class="project-tags">
-                        <span class="tag">Data Tracking</span>
-                        <span class="tag">JavaScript</span>
-                    </div>
-                    
-                    <div class="project-buttons">
-                        <a href="https://github.com/mvoggel/interactive-tracking" class="btn">View Code</a>
-                        <a href="https://mvoggel.github.io/interactive-tracking/" class="btn">Live Demo</a>
-                    </div>
-                </div>
-            </div>
-                        
-            <hr>
-            <div class="project">
-                <div class="project-thumbnail left">
-                    <video autoplay="" muted="" loop="" playsinline="" style="width: 100%; height: auto; object-fit: cover;">
-                        <source src="../assets/sys_health2.mp4" type="video/mp4">
-                          Your browser does not support the video tag.
-                    </video>
-                    <div class="overlay"></div>
-                </div>           
-                <div class="project-description right">
-                    <h2> Basic System Health Monitor - Python Flask app </h2>
-                    <p>A python application that monitors system health information, like current disk memory usage and CPU usage. 
-                        It pushes those values to a dashboard every couple seconds, and plots its change over time. </p>
-                    <p> Demo included in the thumbnail here - code pulls from my current computer, code is hosted locally. </p>
-
-                    <div class="project-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">Data Tracking</span>
-                    </div>
-
-                </div>
-            </div>
-
-            <hr> 
-            <div class="project">
-                <div class="project-thumbnail right">
-                    <img src="../assets/gasmeup.png" alt="Project 4">
-                    <div class="overlay"></div>
-                </div>
-                <div class="project-description left">
-                    <h2>Gas Refill Scheduler</h2>
-                    <p>Multi-step form with Google Maps API connector, as well as scheduler for availability. Submits dynamically to Google Sheets doc for company use, utilizing Google Apps Script to collect, parse, clean, and send data.  </p>
-                    <div class="project-tags">
-                        <span class="tag">Data Analysis</span>
-                        <span class="tag">JavaScript</span>
-                    </div>
-                    <div class="project-buttons">
-                        <a href="https://github.com/gasmeupdev/refill?tab=readme-ov-file" class="btn">View Code</a>
-                        <a href="https://gasmeupdev.github.io/refill/" class="btn">Live Demo</a>
-                    </div>
-                </div>
-            </div>            
-            <hr>
 
             <div class="project">
                 <div class="project-thumbnail right">
                     <img src="../assets/analytics-demo.png" alt="SJ Blinds CRM Automation">
                     <div class="overlay"></div>
                 </div>
-                <div class="project-description left">
+                <div class="project-description right">
                     <h2>SJ Blinds – CRM & Reporting Automation System</h2>
-                    <p>Built an API-driven data pipeline pulling from LeadConnector into Google Sheets via paged API calls. The system automates invoice ingestion, per-rep sales tracking, multi-stage commission calculations, and monthly/YTD reporting.</p>
+                    <p>API-driven data pipeline pulling from LeadConnector into Google Sheets via paged API calls. Automates invoice ingestion, per-rep sales tracking, multi-stage commission calculations, and monthly/YTD reporting.</p>
                     <p>Reduced manual reporting from 5–7 hours per cycle down to ~1 hour. Structured data model spans invoices, payments, reps, and commissions.</p>
                     <div class="project-tags">
                         <span class="tag">JavaScript</span>
@@ -224,17 +80,15 @@
                 </div>
             </div>
 
-            <hr>
-
             <div class="project">
-                <div class="project-thumbnail left">
+                <div class="project-thumbnail right">
                     <img src="../assets/dataviz.png" alt="GPT Sales Assistant">
                     <div class="overlay"></div>
                 </div>
-                <div class="project-description right">
+                <div class="project-description left">
                     <h2>Apps Script + GPT "Sales Assistant"</h2>
-                    <p>Built a backend endpoint in Google Apps Script that triggers data refreshes (YTD / monthly) and reads computed Sheets data. Wired up as a GPT Action so business metrics can be queried in plain English — scripts handle the compute, GPT handles the interface.</p>
-                    <p>Demonstrates the pattern of layering an AI interface on top of existing operational data systems without rebuilding the underlying infrastructure.</p>
+                    <p>Backend endpoint in Google Apps Script that triggers data refreshes (YTD / monthly) and reads computed Sheets data. Wired up as a GPT Action so business metrics can be queried in plain English — scripts handle compute, GPT handles the interface.</p>
+                    <p>Demonstrates layering an AI interface on top of existing operational data systems without rebuilding the underlying infrastructure.</p>
                     <div class="project-tags">
                         <span class="tag">JavaScript</span>
                         <span class="tag">Machine Learning/AI</span>
@@ -246,17 +100,15 @@
                 </div>
             </div>
 
-            <hr>
-
             <div class="project">
                 <div class="project-thumbnail right">
                     <img src="../assets/investment_bot_rf_alpaca.png" alt="Quant Modeling">
                     <div class="overlay"></div>
                 </div>
-                <div class="project-description left">
+                <div class="project-description right">
                     <h2>Quantitative & Macroeconomic Modeling</h2>
-                    <p>Exploration into applied quantitative finance: GARCH and MGARCH volatility modeling extended with external macro variables, plus ODE-based macroeconomic system modeling. Integrates live data from FRED and World Bank APIs for real-world calibration.</p>
-                    <p>Focus is on bridging academic quantitative methods with productized, data-driven applications.</p>
+                    <p>Applied quantitative finance work: GARCH and MGARCH volatility modeling extended with external macro variables, plus ODE-based macroeconomic system modeling. Integrates live data from FRED and World Bank APIs for real-world calibration.</p>
+                    <p>Focus on bridging academic quantitative methods with productized, data-driven applications.</p>
                     <div class="project-tags">
                         <span class="tag">Python</span>
                         <span class="tag">Data Analysis</span>
@@ -268,24 +120,155 @@
                 </div>
             </div>
 
-            <hr>
-
             <div class="project">
                 <div class="project-thumbnail left">
-                    <img src="../assets/dataviz.png" alt="pcIQ Platform">
+                    <img src="../assets/investment_bot_rf_alpaca.png" alt="Project 3">
                     <div class="overlay"></div>
                 </div>
                 <div class="project-description right">
-                    <h2>Private Credit Intelligence Platform (pcIQ) — In Progress</h2>
-                    <p>Designing a sales intelligence and deal-sourcing tool for alternative finance. Maps RIAs to fund flows and investment behavior using scoring models, probabilistic inference, and a hybrid data ingestion strategy (CSV + external APIs).</p>
-                    <p>Architecture goal: convert fragmented private credit data into actionable intelligence for fund managers and deal teams.</p>
+                    <h2>Dynamic Investment Trading Bot</h2>
+                    <p>Python bot that automatically rebalances and trades stocks based on an ETL flow and Random Forest algorithm. Uses real-time and historical data to analyze the market and make decisions. Runs daily.</p>
                     <div class="project-tags">
+                        <span class="tag">Data Analysis</span>
                         <span class="tag">Python</span>
-                        <span class="tag">Machine Learning/AI</span>
                         <span class="tag">Finance/Quant</span>
                     </div>
                     <div class="project-buttons">
-                        <a href="#" class="btn">View Code</a>
+                        <a href="https://github.com/mvoggel/alpaca-trading/tree/main/investment_bot" class="btn">View Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project">
+                <div class="project-thumbnail left">
+                    <img src="../assets/analytics-demo.png" alt="Project 1">
+                    <div class="overlay"></div>
+                </div>
+                <div class="project-description right">
+                    <h2>Live Analytics Demo Site</h2>
+                    <p>Simulating GA and PIWIK Pro Tag Manager tracking, user behavior captures in a live debugger.</p>
+                    <div class="project-tags">
+                        <span class="tag">Data Tracking</span>
+                        <span class="tag">JavaScript</span>
+                    </div>
+                    <div class="project-buttons">
+                        <a href="https://github.com/mvoggel/interactive-tracking" class="btn">View Code</a>
+                        <a href="https://mvoggel.github.io/interactive-tracking/" class="btn">Live Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project">
+                <div class="project-thumbnail right">
+                    <img src="../assets/statscourse.png" alt="Project 2">
+                    <div class="overlay"></div>
+                </div>
+                <div class="project-description right">
+                    <h2>OpenAI Story-Writing App — World Sentiment Analysis</h2>
+                    <p>A storytelling application that generates a new chapter in an ever-growing story. A Python script queries top news and social media feeds, analyzes them with a sentiment score, and uses that to shape the tone of the day's chapter.</p>
+                    <p>Using the previous day's storyline, OpenAI writes today's chapter with the same characters and plot — creating a growing story that the world writes.</p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Machine Learning/AI</span>
+                        <span class="tag">Data Analysis</span>
+                    </div>
+                    <div class="project-buttons">
+                        <a href="https://github.com/mvoggel/live-book" class="btn">View Code</a>
+                        <a href="https://www.reddit.com/user/MattVoggel/" class="btn">Read the Story</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project">
+                <div class="project-thumbnail right">
+                    <img src="../assets/dataviz.png" alt="Project 2">
+                    <div class="overlay"></div>
+                </div>
+                <div class="project-description left">
+                    <h2>Python Jupyter Notebooks — Data Visualization</h2>
+                    <p>A series of Python notebooks for data analysis methods (PERT, statistical significance, regression) using matplotlib, numpy, and pandas. One handles expert visualizations and calculations; the other is a create-your-own plotting tool.</p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Data Analysis</span>
+                    </div>
+                    <div class="project-buttons">
+                        <a href="https://colab.research.google.com/drive/1Zpq0vkwFyCuBraOXQp1QEaEdCbAxTWmu?usp=sharing" class="btn">Data Visualizations</a>
+                        <a href="https://colab.research.google.com/drive/1C9bPBDlHXzXS0S0aQvEGTrgmBOCJyTne?usp=sharing" class="btn">Build Your Own Plot</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project">
+                <div class="project-thumbnail right">
+                    <img src="../assets/statscourse.png" alt="Project 2">
+                    <div class="overlay"></div>
+                </div>
+                <div class="project-description right">
+                    <h2>College Statistics Course Website</h2>
+                    <p>Comprehensive college course on Statistics (101/102) and Probability Theory (201). Uses React.js and Chart.js for interactivity, deployment, and routing.</p>
+                    <div class="project-tags">
+                        <span class="tag">Statistics</span>
+                        <span class="tag">JavaScript</span>
+                    </div>
+                    <div class="project-buttons">
+                        <a href="https://github.com/mvoggel/prob_stats" class="btn">View Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project">
+                <div class="project-thumbnail right">
+                    <video autoplay muted loop playsinline style="width: 100%; height: auto; object-fit: cover;">
+                        <source src="../assets/sysmon.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="overlay"></div>
+                </div>
+                <div class="project-description left">
+                    <h2>Advanced System Health Monitor — Python Logs & Email Thresholds</h2>
+                    <p>Python-based system monitoring tool that tracks CPU, memory, and disk usage over time, logs the data, and sends email alerts when performance thresholds are exceeded.</p>
+                    <p>After 5 minutes of running, stops and creates a dashboard plot of all system information.</p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Data Tracking</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project">
+                <div class="project-thumbnail left">
+                    <video autoplay muted loop playsinline style="width: 100%; height: auto; object-fit: cover;">
+                        <source src="../assets/sys_health2.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="overlay"></div>
+                </div>
+                <div class="project-description right">
+                    <h2>Basic System Health Monitor — Python Flask App</h2>
+                    <p>A Python application that monitors system health (disk memory, CPU usage), pushes values to a dashboard every few seconds, and plots change over time.</p>
+                    <p>Demo in the thumbnail pulls from my current computer. Code is hosted locally.</p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Data Tracking</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project">
+                <div class="project-thumbnail right">
+                    <img src="../assets/gasmeup.png" alt="Project 4">
+                    <div class="overlay"></div>
+                </div>
+                <div class="project-description left">
+                    <h2>Gas Refill Scheduler</h2>
+                    <p>Multi-step form with Google Maps API connector and availability scheduler. Submits dynamically to Google Sheets via Apps Script to collect, parse, clean, and send data.</p>
+                    <div class="project-tags">
+                        <span class="tag">Data Analysis</span>
+                        <span class="tag">JavaScript</span>
+                    </div>
+                    <div class="project-buttons">
+                        <a href="https://github.com/gasmeupdev/refill?tab=readme-ov-file" class="btn">View Code</a>
+                        <a href="https://gasmeupdev.github.io/refill/" class="btn">Live Demo</a>
                     </div>
                 </div>
             </div>

@@ -105,24 +105,50 @@ animateParticles();
 
 
 
-//Filtering by tag
+// Filtering by tag — moves matching projects to the top, hides the rest
 document.addEventListener("DOMContentLoaded", function () {
     const tagFilter = document.getElementById("tag-filter");
 
-    if (tagFilter) {  // Only run if the element exists
+    if (tagFilter) {
         tagFilter.addEventListener("change", function () {
             const selectedTag = this.value;
-            const projects = document.querySelectorAll(".project");
+            const projectsList = document.querySelector(".projects-list");
+            const allProjects = Array.from(document.querySelectorAll(".project"));
 
-            projects.forEach(project => {
-                const tags = Array.from(project.querySelectorAll(".tag")).map(tag => tag.textContent.toLowerCase().replace(/\s+/g, '-'));
+            // Reset: show all in original order
+            if (selectedTag === "all") {
+                allProjects.forEach(p => {
+                    p.style.display = "flex";
+                    projectsList.appendChild(p);
+                });
+                return;
+            }
 
-                if (selectedTag === "all" || tags.includes(selectedTag)) {
-                    project.style.display = "flex"; // Show matching projects
+            const normalizeTag = s => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+            const filterWords = selectedTag.split('-').filter(w => w.length > 1);
+
+            const matching = [];
+            const nonMatching = [];
+
+            allProjects.forEach(project => {
+                const tagTexts = Array.from(project.querySelectorAll(".tag"))
+                    .map(tag => normalizeTag(tag.textContent));
+
+                const isMatch = tagTexts.some(t =>
+                    t === selectedTag || filterWords.every(word => t.includes(word))
+                );
+
+                if (isMatch) {
+                    matching.push(project);
                 } else {
-                    project.style.display = "none"; // Hide non-matching projects
+                    nonMatching.push(project);
                 }
             });
+
+            // Reorder DOM: matching first, non-matching after (hidden)
+            [...matching, ...nonMatching].forEach(p => projectsList.appendChild(p));
+            matching.forEach(p => p.style.display = "flex");
+            nonMatching.forEach(p => p.style.display = "none");
         });
     }
 });
